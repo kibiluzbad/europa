@@ -1,23 +1,18 @@
 <div class="row">
-    <table class="table table-striped" ng-if="null != playlists">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>#</th>
+                <th style="width:10px">#</th>
                 <th>Name</th>
-                <th>Collness</th>
+
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="(key,value) in playlists">
                 <td>{{$index+1}}</td>
-                <td><a ng-href="#/playlist/{{key}}">{{key}}</a>
-                </td>
-                <td>
-                    <rating ng-model="value.coolnessRate" max="10" readonly="true"></rating>
-                    <span class="label" ng-class="{'label-warning': value.coolness<30, 'label-info': value.coolness>=30 && value.coolness<70, 'label-success': value.coolness>=70}">{{value.coolness | number:0}}</span>
-                </td>
+                <td><a ng-href="#/playlist/{{key}}">{{key}}</a> 
             </tr>
         </tbody>
     </table>
-    <div ng-hide="null == playlists" class="alert alert-info" role="alert"><i class="glyphicon glyphicon-info-sign"></i> You don't have any playlists yet!</div>
+
 </div>

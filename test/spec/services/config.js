@@ -2,17 +2,17 @@
 
 describe('Service: config', function () {
 
-  // load the service's module
-  beforeEach(module('europaApp'));
+    // load the service's module
+    beforeEach(module('europaApp'));
 
-  // instantiate service
-  var config;
-  beforeEach(inject(function (_config_) {
-    config = _config_;
-  }));
+    // instantiate service
+    var config;
+    beforeEach(inject(function (_config_) {
+        config = _config_;
+    }));
 
-  it('should do something', function () {
-    expect(!!config).toBe(true);
-  });
+    it('should have api url', function () {
+        expect(!!config.apiUrl).toBe(true);
+    });
 
 });

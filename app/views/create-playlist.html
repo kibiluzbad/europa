@@ -3,7 +3,7 @@
 
     </div>
     <div class="col-xs-12" style="margin-top:30px">
-        <form ng-click="save()" class="form-horizontal" role="form" novalidate>
+        <form class="form-horizontal" role="form" novalidate>
 
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">List name:</label>
@@ -22,7 +22,7 @@
                             <th style="width:20px"></th>
                         </tr>
                     </thead>
-                    <tbody ui-sortable="sortableOptions" ng-model="playlist.songs">
+                    <tbody ui-sortable ng-model="playlist.songs">
                         <tr ng-repeat="song in playlist.songs" style="cursor: move">
                             <td>{{$index+1}}</td>
                             <td>{{song.name}}</td>
@@ -39,9 +39,11 @@
                     <tfoot>
                         <tr>
                             <th colspan="2">Total duration</th>
-                            <th>{{getDuration(playlist.totalDuration())}}</th>
+                            <th>{{getDuration(playlist.duration)}}</th>
                             <td>
-                                {{playlist.getCoolness() | number:0}}
+                                <rating ng-model="playlist.coolnessRate" max="10" readonly="true"></rating>
+                                <span class="label" ng-class="{'label-warning': playlist.coolness<30, 'label-info': playlist.coolness>=30 && playlist.coolness<70, 'label-success': playlist.coolness>=70}">{{playlist.coolness | number:0}}</span>
+
                             </td>
                             <td></td>
                             <td></td>
@@ -54,7 +56,7 @@
 
 
             <div ng-if="0 < playlist.songs.length">
-                <button type="submit" class="btn btn-primary btn-lg" ng-disabled="playlist.persisted()"><i class="glyphicon" ng-class="{'glyphicon-floppy-saved': playlist.persisted(), 'glyphicon-floppy-save': !playlist.persisted()}"></i> Salvar</button>
+                <button type="button" ng-click="save()" class="btn btn-primary btn-lg" ng-disabled="playlist.persisted()"><i class="glyphicon" ng-class="{'glyphicon-floppy-saved': playlist.persisted(), 'glyphicon-floppy-save': !playlist.persisted()}"></i> Salvar</button>
             </div>
         </form>
     </div>

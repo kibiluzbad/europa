@@ -36,12 +36,4 @@ angular.module('europaApp')
             $scope.save = function () {
                 $scope.playlist.save();
             }
-
-            $scope.sortableOptions = {
-                update: function (e, ui) {},
-                stop: function (e, ui) {
-                    console.log(e);
-                    console.log(ui);
-                }
-            };
 }]);

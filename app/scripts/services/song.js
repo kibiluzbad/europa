@@ -11,6 +11,7 @@ angular.module('europaApp')
     .provider('Song', function () {
         this.$get = ['$resource', 'config',
                 function ($resource, config) {
+
                 var Song = $resource(config.apiUrl, {
                     type: 'track'
                 }, {

@@ -19,6 +19,7 @@ angular
     'angularMoment',
     'ui.sortable',
     'ngStorage',
+    'toaster',
   ])
     .config(['$routeProvider',
         function ($routeProvider) {
