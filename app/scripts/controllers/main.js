@@ -8,10 +8,13 @@
  * Controller of the europaApp
  */
 angular.module('europaApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('MainCtrl', ['$scope', 'Playlist',
+        function ($scope, Playlist) {
+            $scope.playlists = new Playlist().query();
+
+            $scope.log = function (val) {
+                console.log(val.coolness);
+                return "teste";
+            }
+
+  }]);

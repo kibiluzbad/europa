@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-xs-12" ng-include="'views/search-songs.html'">
+
+    </div>
+    <div class="col-xs-12" style="margin-top:30px">
+        <form ng-click="save()" class="form-horizontal" role="form" novalidate>
+
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">List name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" ng-model="playlist.name" placeholder="Enter list name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <table class="table table-striped" ng-if="0 < playlist.songs.length">
+                    <thead>
+                        <tr>
+                            <th style="width:10px">#</th>
+                            <th>Song</th>
+                            <th style="width:100px">Duration</th>
+                            <th style="width:200px">Populatrity</th>
+                            <th style="width:20px"></th>
+                        </tr>
+                    </thead>
+                    <tbody ui-sortable="sortableOptions" ng-model="playlist.songs">
+                        <tr ng-repeat="song in playlist.songs" style="cursor: move">
+                            <td>{{$index+1}}</td>
+                            <td>{{song.name}}</td>
+                            <td>{{getDuration(song.duration_ms)}}</td>
+                            <td>
+                                <rating ng-model="song.rate" max="10" readonly="true"></rating>
+                                <span class="label" ng-class="{'label-warning': song.popularity<30, 'label-info': song.popularity>=30 && song.popularity<70, 'label-success': song.popularity>=70}">{{song.popularity}}</span>
+                            </td>
+                            <td>
+                                <a ng-click="remove(song)" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Total duration</th>
+                            <th>{{getDuration(playlist.totalDuration())}}</th>
+                            <td>
+                                {{playlist.getCoolness() | number:0}}
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div ng-if="0 >= playlist.songs.length" class="alert alert-info" role="alert"><i class="glyphicon glyphicon-info-sign"></i> You don't have any songs yet! Let's start adding!</div>
+
+
+            <div ng-if="0 < playlist.songs.length">
+                <button type="submit" class="btn btn-primary btn-lg" ng-disabled="playlist.persisted()"><i class="glyphicon" ng-class="{'glyphicon-floppy-saved': playlist.persisted(), 'glyphicon-floppy-save': !playlist.persisted()}"></i> Salvar</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+

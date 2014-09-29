@@ -1,0 +1,10 @@
+<form role="form" ng-controller="SearchSongsCtrl" ng-submit="add()">
+    <div class="input-group input-group-lg">
+        <input class="form-control" type="text" ng-model="song" placeholder="Type song title here" typeahead="song as song.name for song in search($viewValue)" typeahead-template-url="views/search-result.html" typeahead-on-select="select($item, $model, $label)">
+        <span class="input-group-btn">
+
+        <button id="addSong" type="submit" class="btn btn-success disabled"><i class="glyphicon glyphicon-plus"></i> Add</button>
+      </span>
+
+    </div>
+</form>

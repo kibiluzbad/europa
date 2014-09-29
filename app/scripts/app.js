@@ -9,24 +9,39 @@
  * Main module of the application.
  */
 angular
-  .module('europaApp', [
+    .module('europaApp', [
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'angularMoment',
+    'ui.sortable',
+    'ngStorage',
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    .config(['$routeProvider',
+        function ($routeProvider) {
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'views/main.html',
+                    controller: 'MainCtrl'
+                })
+                .when('/create-playlist', {
+                    templateUrl: 'views/create-playlist.html',
+                    controller: 'CreatePlaylistCtrl'
+                })
+                .when('/playlist/:name', {
+                    templateUrl: 'views/create-playlist.html',
+                    controller: 'EditPlaylistCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
+  }]).run(['$rootScope', '$location',
+            function ($rootScope, $location) {
+
+            $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+                $rootScope.activeRoute = $location.path();
+            });
+    }]);
