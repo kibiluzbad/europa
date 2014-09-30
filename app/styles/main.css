@@ -107,3 +107,6 @@ body {
 .angular-tagger__matching-item--selected {
     background-color: #ccc;
 }
+.alert {
+    border-radius: 0px;
+}
