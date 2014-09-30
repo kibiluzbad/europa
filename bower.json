@@ -15,7 +15,8 @@
     "angular-moment": "~0.8.2",
     "angular-ui-sortable": "~0.12.11",
     "ngstorage": "~0.3.0",
-    "angularjs-toaster": "~0.4.8"
+    "angularjs-toaster": "~0.4.8",
+    "angular-tagger": "~0.1.12"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Playlytics - v0.1</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -11,6 +11,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
+    <link rel="stylesheet" href="bower_components/angular-tagger/build/angular-tagger.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -25,16 +26,18 @@
 
     <!-- Add your site or application content here -->
     <toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
-    <div class="container">
-        <div class="header">
-            <ng-include src="'views/menu.html'"></ng-include>
-            <h3 class="text-muted">Playlytics</h3>
-        </div>
+    <div class="wrap">
+        <div class="container">
+            <div class="header">
+                <ng-include src="'views/menu.html'"></ng-include>
+                <h3 class="text-muted">Playlytics v0.1</h3>
+            </div>
 
-        <div ng-view=""></div>
+            <div ng-view=""></div>
 
-        <div class="footer">
-            <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.</p>
+            <div class="footer">
+                <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.</p>
+            </div>
         </div>
     </div>
 
@@ -82,6 +85,7 @@
     <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angularjs-toaster/toaster.js"></script>
+    <script src="bower_components/angular-tagger/build/angular-tagger.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

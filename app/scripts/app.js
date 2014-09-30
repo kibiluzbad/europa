@@ -20,6 +20,7 @@ angular
     'ui.sortable',
     'ngStorage',
     'toaster',
+    'tagger',
   ])
     .config(['$routeProvider',
         function ($routeProvider) {

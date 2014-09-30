@@ -20,6 +20,7 @@ angular.module('europaApp')
                     scope.name = listname || '';
                     var data = ($rootScope.$storage[scope.name] || {
                         songs: [],
+                        tags: [],
                         duration: 0,
                         coolness: 0,
                         coolnessRate: 0
@@ -51,6 +52,7 @@ angular.module('europaApp')
                     };
 
                     scope.songs = data.songs;
+                    scope.tags = data.tags;
                     scope.duration = data.duration;
                     scope.coolness = data.coolness;
                     scope.coolnessRate = data.coolnessRate;

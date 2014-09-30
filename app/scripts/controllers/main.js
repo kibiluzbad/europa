@@ -11,10 +11,12 @@ angular.module('europaApp')
     .controller('MainCtrl', ['$scope', 'Playlist',
         function ($scope, Playlist) {
             $scope.playlists = new Playlist().query();
-            console.log($scope.playlists.keys);
-            $scope.log = function (val) {
-                console.log(val.coolness);
-                return "teste";
+            $scope.hasKeys = function (obj) {
+                var result = false;
+                for (var k in obj) {
+                    if (k[0] != '$') result = true;
+                }
+                return result;
             }
 
   }]);

@@ -1,5 +1,5 @@
 <div class="row">
-    <table class="table table-striped">
+    <table class="table table-striped" ng-if="hasKeys(playlists)">
         <thead>
             <tr>
                 <th style="width:10px">#</th>
@@ -14,5 +14,5 @@
             </tr>
         </tbody>
     </table>
-
+    <div ng-if="!hasKeys(playlists)" class="alert alert-info" role="alert"><i class="glyphicon glyphicon-info-sign"></i> You don't have any playlists yet!</div>
 </div>
