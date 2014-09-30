@@ -1,7 +1,7 @@
 Setup
 =====
 
-Install nodejs: [http://nodejs.org/download/]http://nodejs.org/download/
+Install nodejs: [http://nodejs.org/download/](http://nodejs.org/download/)
 
 Install yo
 
